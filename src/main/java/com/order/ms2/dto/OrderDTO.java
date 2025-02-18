@@ -3,15 +3,18 @@ package com.order.ms2.dto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.order.ms2.entity.ItemEntity;
+import com.order.ms2.entity.OrderStatus;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class OrderDTO {
     private String clientId;
     private String orderId;
-    private List<ItemEntity> items;
+    private List<ItemEntity> items = new ArrayList<>();
     private double total;
-    ObjectMapper objectMapper = new ObjectMapper();
+    private OrderStatus status;
+    private ObjectMapper objectMapper = new ObjectMapper();
 
     public String getClientId() {
         return clientId;
@@ -43,6 +46,14 @@ public class OrderDTO {
 
     public void setTotal(double total) {
         this.total = total;
+    }
+
+    public OrderStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(OrderStatus status) {
+        this.status = status;
     }
 
     @Override
